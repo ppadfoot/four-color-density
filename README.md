@@ -31,9 +31,11 @@ Let a set $C\subset\mathbb R^2$ be colored by $\mathbb Z/4\mathbb Z$. For any tw
 
 Then $C$ is locally finite and
 
-$$
-\limsup_{R\to\infty}\frac{\#(C\cap\overline B(0,R))}{\pi R^2}\leq 1.
-$$
+```math
+\limsup_{R\to\infty}\frac{\operatorname{card}\left(C\cap\overline{B}(0,R)\right)}{\pi R^2}\leq 1.
+```
+
+Here, cardinality counts the points in the closed Euclidean disk of radius $R$ centered at the origin.
 
 No periodicity or existence of an ordinary density limit is assumed. The paper proves sharpness using a checkerboard coloring of $\mathbb Z^2$. Its five-dimensional consequence concerns the specified family of packings built from four translates of $D_3$ over a planar base; it does not establish unrestricted optimality of $D_5$.
 
