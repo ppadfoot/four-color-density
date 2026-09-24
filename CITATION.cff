@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  Please cite the manuscript and identify the repository commit used.
+title: "A proof of Cohn and Rajagopal's four-color density conjecture"
+authors:
+  - family-names: Iuzhakov
+    given-names: Timofei
+  - family-names: Vetrov
+    given-names: Dmitry
+keywords:
+  - discrete geometry
+  - sphere packing
+  - colored point configurations
+  - Delaunay triangulations
+  - formal verification
+  - Lean
+preferred-citation:
+  type: unpublished
+  title: "A proof of Cohn and Rajagopal's four-color density conjecture"
+  authors:
+    - family-names: Iuzhakov
+      given-names: Timofei
+    - family-names: Vetrov
+      given-names: Dmitry
+  year: 2026
+  notes: "Manuscript with accompanying Lean formalization; cite the repository commit used."

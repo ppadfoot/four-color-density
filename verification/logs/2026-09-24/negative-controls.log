@@ -1,0 +1,259 @@
+Audit41.published_statement (S : Set.{0} Conjecture41.Plane)
+  (c : @Set.Elem.{0} Conjecture41.Plane S → Conjecture41.Color)
+  (hsame :
+    ∀ (x y : @Set.Elem.{0} Conjecture41.Plane S),
+      @Ne.{1} (@Set.Elem.{0} Conjecture41.Plane S) x y →
+        @Eq.{1} Conjecture41.Color (c x) (c y) →
+          @LE.le.{0} Real Real.instLE
+            (Real.sqrt
+              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                  (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+            (@Dist.dist.{0} Conjecture41.Plane
+              (@PiLp.instDist.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal instAddCommMonoidWithOneENNReal))
+                    PiLp.innerProductSpace._proof_1))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real)
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                @PseudoMetricSpace.toDist.{0} Real Real.pseudoMetricSpace)
+              (@Subtype.val.{1} Conjecture41.Plane
+                (fun (x : Conjecture41.Plane) =>
+                  @Membership.mem.{0, 0} Conjecture41.Plane (Set.{0} Conjecture41.Plane)
+                    (@Set.instMembership.{0} Conjecture41.Plane) S x)
+                x)
+              (@Subtype.val.{1} Conjecture41.Plane
+                (fun (x : Conjecture41.Plane) =>
+                  @Membership.mem.{0, 0} Conjecture41.Plane (Set.{0} Conjecture41.Plane)
+                    (@Set.instMembership.{0} Conjecture41.Plane) S x)
+                y)))
+  (hadjacent :
+    ∀ (x y : @Set.Elem.{0} Conjecture41.Plane S),
+      @Ne.{1} (@Set.Elem.{0} Conjecture41.Plane S) x y →
+        Or
+            (@Eq.{1} Conjecture41.Color (c y)
+              (@HAdd.hAdd.{0, 0, 0} Conjecture41.Color Conjecture41.Color Conjecture41.Color
+                (@instHAdd.{0} Conjecture41.Color
+                  (@Distrib.toAdd.{0} Conjecture41.Color
+                    (@NonUnitalNonAssocSemiring.toDistrib.{0} Conjecture41.Color
+                      (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Conjecture41.Color
+                        (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Conjecture41.Color
+                          (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Conjecture41.Color
+                            (@CommRing.toNonUnitalCommRing.{0} Conjecture41.Color
+                              (ZMod.commRing (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))))))))
+                (c x)
+                (@OfNat.ofNat.{0} Conjecture41.Color (nat_lit 1)
+                  (@One.toOfNat1.{0} Conjecture41.Color
+                    (@AddMonoidWithOne.toOne.{0} Conjecture41.Color
+                      (@AddGroupWithOne.toAddMonoidWithOne.{0} Conjecture41.Color
+                        (@Ring.toAddGroupWithOne.{0} Conjecture41.Color
+                          (@CommRing.toRing.{0} Conjecture41.Color
+                            (ZMod.commRing (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))))))))
+            (@Eq.{1} Conjecture41.Color (c y)
+              (@HSub.hSub.{0, 0, 0} Conjecture41.Color Conjecture41.Color Conjecture41.Color
+                (@instHSub.{0} Conjecture41.Color
+                  (@SubNegMonoid.toSub.{0} Conjecture41.Color
+                    (@AddGroup.toSubNegMonoid.{0} Conjecture41.Color
+                      (@AddGroupWithOne.toAddGroup.{0} Conjecture41.Color
+                        (@Ring.toAddGroupWithOne.{0} Conjecture41.Color
+                          (@CommRing.toRing.{0} Conjecture41.Color
+                            (ZMod.commRing (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))))))
+                (c x)
+                (@OfNat.ofNat.{0} Conjecture41.Color (nat_lit 1)
+                  (@One.toOfNat1.{0} Conjecture41.Color
+                    (@AddMonoidWithOne.toOne.{0} Conjecture41.Color
+                      (@AddGroupWithOne.toAddMonoidWithOne.{0} Conjecture41.Color
+                        (@Ring.toAddGroupWithOne.{0} Conjecture41.Color
+                          (@CommRing.toRing.{0} Conjecture41.Color
+                            (ZMod.commRing (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))))))))) →
+          @LE.le.{0} Real Real.instLE
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (Real.sqrt
+                (@OfNat.ofNat.{0} Real (nat_lit 5)
+                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 5) Real.instNatCast
+                    (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))
+                      (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))))))
+              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                  (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))))))
+            (@Dist.dist.{0} Conjecture41.Plane
+              (@PiLp.instDist.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal instAddCommMonoidWithOneENNReal))
+                    PiLp.innerProductSpace._proof_1))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real)
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                @PseudoMetricSpace.toDist.{0} Real Real.pseudoMetricSpace)
+              (@Subtype.val.{1} Conjecture41.Plane
+                (fun (x : Conjecture41.Plane) =>
+                  @Membership.mem.{0, 0} Conjecture41.Plane (Set.{0} Conjecture41.Plane)
+                    (@Set.instMembership.{0} Conjecture41.Plane) S x)
+                x)
+              (@Subtype.val.{1} Conjecture41.Plane
+                (fun (x : Conjecture41.Plane) =>
+                  @Membership.mem.{0, 0} Conjecture41.Plane (Set.{0} Conjecture41.Plane)
+                    (@Set.instMembership.{0} Conjecture41.Plane) S x)
+                y)))
+  (hopposite :
+    ∀ (x y : @Set.Elem.{0} Conjecture41.Plane S),
+      @Ne.{1} (@Set.Elem.{0} Conjecture41.Plane S) x y →
+        @Eq.{1} Conjecture41.Color (c y)
+            (@HAdd.hAdd.{0, 0, 0} Conjecture41.Color Conjecture41.Color Conjecture41.Color
+              (@instHAdd.{0} Conjecture41.Color
+                (@Distrib.toAdd.{0} Conjecture41.Color
+                  (@NonUnitalNonAssocSemiring.toDistrib.{0} Conjecture41.Color
+                    (@NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Conjecture41.Color
+                      (@NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Conjecture41.Color
+                        (@NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Conjecture41.Color
+                          (@CommRing.toNonUnitalCommRing.{0} Conjecture41.Color
+                            (ZMod.commRing (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))))))))
+              (c x)
+              (@OfNat.ofNat.{0} Conjecture41.Color (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} Conjecture41.Color (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} Conjecture41.Color
+                    (@AddGroupWithOne.toAddMonoidWithOne.{0} Conjecture41.Color
+                      (@Ring.toAddGroupWithOne.{0} Conjecture41.Color
+                        (@CommRing.toRing.{0} Conjecture41.Color
+                          (ZMod.commRing (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))))
+                  (@Nat.instAtLeastTwoHAddOfNat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                    (@Nat.instNeZeroSucc (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))))) →
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@Dist.dist.{0} Conjecture41.Plane
+              (@PiLp.instDist.{0, 0}
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                  (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                    (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                      (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal instAddCommMonoidWithOneENNReal))
+                    PiLp.innerProductSpace._proof_1))
+                (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real)
+                (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                @PseudoMetricSpace.toDist.{0} Real Real.pseudoMetricSpace)
+              (@Subtype.val.{1} Conjecture41.Plane
+                (fun (x : Conjecture41.Plane) =>
+                  @Membership.mem.{0, 0} Conjecture41.Plane (Set.{0} Conjecture41.Plane)
+                    (@Set.instMembership.{0} Conjecture41.Plane) S x)
+                x)
+              (@Subtype.val.{1} Conjecture41.Plane
+                (fun (x : Conjecture41.Plane) =>
+                  @Membership.mem.{0, 0} Conjecture41.Plane (Set.{0} Conjecture41.Plane)
+                    (@Set.instMembership.{0} Conjecture41.Plane) S x)
+                y))) :
+  And
+    (∀ (r : Real),
+      @Set.Finite.{0} Conjecture41.Plane
+        (@Inter.inter.{0} (Set.{0} Conjecture41.Plane) (@Set.instInter.{0} Conjecture41.Plane) S
+          (@Metric.closedBall.{0} Conjecture41.Plane
+            (@PiLp.instPseudoMetricSpace.{0, 0}
+              (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal instAddCommMonoidWithOneENNReal))
+                  PiLp.innerProductSpace._proof_1))
+              (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real)
+              fact_one_le_two_ennreal (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real.pseudoMetricSpace)
+            (@OfNat.ofNat.{0} Conjecture41.Plane (nat_lit 0)
+              (@Zero.toOfNat0.{0} Conjecture41.Plane
+                (@NegZeroClass.toZero.{0} Conjecture41.Plane
+                  (@SubNegZeroMonoid.toNegZeroClass.{0} Conjecture41.Plane
+                    (@SubtractionMonoid.toSubNegZeroMonoid.{0} Conjecture41.Plane
+                      (@SubtractionCommMonoid.toSubtractionMonoid.{0} Conjecture41.Plane
+                        (@AddCommGroup.toDivisionAddCommMonoid.{0} Conjecture41.Plane
+                          (@WithLp.instAddCommGroup.{0}
+                            (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                              (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                  (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                    instAddCommMonoidWithOneENNReal))
+                                PiLp.innerProductSpace._proof_1))
+                            ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) →
+                              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real) i)
+                            (@Pi.addCommGroup.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                              (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real)
+                              fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                              Real.instAddCommGroup)))))))))
+            r)))
+    (@LE.le.{0} Real Real.instLE
+      (@Filter.limsup.{0, 0} Real Real
+        (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Real
+          Real.instConditionallyCompleteLinearOrder)
+        (fun (r : Real) =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@Nat.cast.{0} Real Real.instNatCast
+              (@Set.ncard.{0} Conjecture41.Plane
+                (@Inter.inter.{0} (Set.{0} Conjecture41.Plane) (@Set.instInter.{0} Conjecture41.Plane) S
+                  (@Metric.closedBall.{0} Conjecture41.Plane
+                    (@PiLp.instPseudoMetricSpace.{0, 0}
+                      (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                        (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                          (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                            (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal instAddCommMonoidWithOneENNReal))
+                          PiLp.innerProductSpace._proof_1))
+                      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) => Real)
+                      fact_one_le_two_ennreal
+                      (Fin.fintype (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                      Real.pseudoMetricSpace)
+                    (@OfNat.ofNat.{0} Conjecture41.Plane (nat_lit 0)
+                      (@Zero.toOfNat0.{0} Conjecture41.Plane
+                        (@NegZeroClass.toZero.{0} Conjecture41.Plane
+                          (@SubNegZeroMonoid.toNegZeroClass.{0} Conjecture41.Plane
+                            (@SubtractionMonoid.toSubNegZeroMonoid.{0} Conjecture41.Plane
+                              (@SubtractionCommMonoid.toSubtractionMonoid.{0} Conjecture41.Plane
+                                (@AddCommGroup.toDivisionAddCommMonoid.{0} Conjecture41.Plane
+                                  (@WithLp.instAddCommGroup.{0}
+                                    (@OfNat.ofNat.{0} ENNReal (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} ENNReal (nat_lit 2)
+                                        (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                          (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                            instAddCommMonoidWithOneENNReal))
+                                        PiLp.innerProductSpace._proof_1))
+                                    ((i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) →
+                                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                                          Real)
+                                        i)
+                                    (@Pi.addCommGroup.{0, 0}
+                                      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                                      (fun (x : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                                        Real)
+                                      fun (i : Fin (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) =>
+                                      Real.instAddCommGroup)))))))))
+                    r))))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) Real.pi
+              (@HPow.hPow.{0, 0, 0} Real Nat Real
+                (@instHPow.{0, 0} Real Nat (@Monoid.toNatPow.{0} Real Real.instMonoid)) r
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+        (@Filter.atTop.{0} Real Real.instPreorder))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+'Audit41.published_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Conjecture41.periodic_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Conjecture41.exists_torusTriangulation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Conjecture41.PeriodicConfig.area_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Conjecture41.PeriodicConfig.euler_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Conjecture41.DeloneSet.exists_mem_delCell' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AuditNegativeControl.poisoned' depends on axioms: [AuditNegativeControl.injectedFalse]
+../../lean-audit/controls/IndependentAudit.lean:15:0: error: ❌️ Docstring on `#guard_msgs` does not match generated message:
+
+- info: 'AuditNegativeControl.poisoned' depends on axioms: [propext, Classical.choice, Quot.sound]
++ info: 'AuditNegativeControl.poisoned' depends on axioms: [AuditNegativeControl.injectedFalse]
+../../lean-audit/controls/IndependentAudit.lean:20:8: warning: declaration uses `sorry`
+'AuditNegativeControl.admitted' depends on axioms: [sorryAx]
+../../lean-audit/controls/IndependentAudit.lean:22:0: error: ❌️ Docstring on `#guard_msgs` does not match generated message:
+
+- info: 'AuditNegativeControl.admitted' depends on axioms: [propext, Classical.choice, Quot.sound]
++ info: 'AuditNegativeControl.admitted' depends on axioms: [sorryAx]

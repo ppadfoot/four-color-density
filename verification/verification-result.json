@@ -1,0 +1,95 @@
+{
+  "started_utc": "2026-09-24T13:37:49.221992+00:00",
+  "kind": "reverification of unchanged previously compiled project",
+  "toolchain": "leanprover/lean4:v4.28.0",
+  "project_build_cache_reused": true,
+  "new_final_verification_elaboration": true,
+  "commands": [
+    {
+      "name": "lean-version",
+      "command": "<USER_HOME>/.elan/bin/elan run leanprover/lean4:v4.28.0 lean --version",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 0.522
+    },
+    {
+      "name": "default-build",
+      "command": "<USER_HOME>/.elan/bin/elan run leanprover/lean4:v4.28.0 lake build",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 9.365
+    },
+    {
+      "name": "final-verification",
+      "command": "<USER_HOME>/.elan/bin/elan run leanprover/lean4:v4.28.0 lake env lean Verification.lean",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "seconds": 51.774
+    },
+    {
+      "name": "negative-controls",
+      "command": "<USER_HOME>/.elan/bin/elan run leanprover/lean4:v4.28.0 lake env lean ../../lean-audit/controls/IndependentAudit.lean",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "seconds": 47.322
+    }
+  ],
+  "all_sources_equal_to_release_and_previous_full_build": true,
+  "three_final_axiom_guards_passed": true,
+  "injected_axiom_rejected": true,
+  "admitted_proof_rejected": true,
+  "status": "PASS",
+  "completed_utc": "2026-09-24T13:39:38.227412+00:00",
+  "dependency_pins": [
+    {
+      "name": "mathlib",
+      "revision": "8f9d9cff6bd728b17a24e163c9402775d9e6a365"
+    },
+    {
+      "name": "plausible",
+      "revision": "55c8532eb21ec9f6d565d51d96b8ca50bd1fbef3"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+    },
+    {
+      "name": "importGraph",
+      "revision": "85b59af46828c029a9168f2f9c35119bd0721e6e"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "be3b2e63b1bbf496c478cef98b86972a37c1417d"
+    },
+    {
+      "name": "aesop",
+      "revision": "f642a64c76df8ba9cb53dba3b919425a0c2aeaf1"
+    },
+    {
+      "name": "Qq",
+      "revision": "b8f98e9087e02c8553945a2c5abf07cec8e798c3"
+    },
+    {
+      "name": "batteries",
+      "revision": "495c008c3e3f4fb4256ff5582ddb3abf3198026f"
+    },
+    {
+      "name": "Cli",
+      "revision": "4f10f47646cb7d5748d6f423f4a07f98f7bbcc9e"
+    }
+  ],
+  "dependency_tracked_files_clean": [
+    "mathlib",
+    "plausible",
+    "LeanSearchClient",
+    "importGraph",
+    "proofwidgets",
+    "aesop",
+    "Qq",
+    "batteries",
+    "Cli"
+  ],
+  "source_manifest_entries_matched": 60,
+  "local_lean_files": 51,
+  "lemma_theorem_declarations": 523
+}

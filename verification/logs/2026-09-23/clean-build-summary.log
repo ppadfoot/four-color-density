@@ -1,0 +1,63 @@
+Extracted status lines from the complete source-build logs of 23 September 2026.
+All corresponding release sources are byte-identical to those reverified on 24 September.
+This file is an excerpt, not the complete compiler output.
+
+✔ [2805/2805] Built Conjecture41.Definitions (33s)
+✔ [2806/2806] Built Conjecture41.LocalGeometry (31s)
+✔ [2808/2808] Built Conjecture41.Voronoi (41s)
+✔ [2806/2806] Built Conjecture41.PlaneUtil (33s)
+✔ [2807/2807] Built Conjecture41.Periodic (56s)
+✔ [2808/2808] Built Conjecture41.PeriodicLift (35s)
+✔ [2809/2809] Built Conjecture41.Delone (33s)
+✔ [2813/2813] Built Conjecture41.VoronoiPolygon (35s)
+✔ [2814/2814] Built Conjecture41.DelaunayCell (35s)
+✔ [2808/2808] Built Conjecture41.Cotangent (28s)
+✔ [2817/2817] Built Conjecture41.DelaunayTiling (28s)
+✔ [2821/2821] Built Conjecture41.VoronoiVertex (35s)
+✔ [2822/2822] Built Conjecture41.PeriodicDelaunay (29s)
+✔ [2809/2809] Built Conjecture41.TriangleArea (39s)
+✔ [2810/2810] Built Conjecture41.AreaAdditivity (36s)
+✔ [2810/2810] Built Conjecture41.InscribedOrientation (32s)
+✔ [2810/2810] Built Conjecture41.Barycentric (33s)
+✔ [2813/2813] Built Conjecture41.Fan (43s)
+✔ [2814/2814] Built Conjecture41.CocircularFan (110s)
+✔ [2823/2823] Built Conjecture41.DelaunayFan (87s)
+✔ [2818/2818] Built Conjecture41.DelaunayGrow (73s)
+✔ [2825/2825] Built Conjecture41.CanonicalFan (71s)
+✔ [2811/2811] Built Conjecture41.TriangleInterior (25s)
+✔ [2826/2826] Built Conjecture41.GlobalTriangulation (21s)
+✔ [2828/2828] Built Conjecture41.LocalFiniteness (17s)
+✔ [2819/2819] Built Conjecture41.EdgeGrowth (37s)
+✔ [2829/2829] Built Conjecture41.EdgeNeighbour (19s)
+✔ [2831/2831] Built Conjecture41.EdgeToEdge (20s)
+✔ [2808/2808] Built Conjecture41.Fundamental (15s)
+✔ [2832/2832] Built Conjecture41.Darts (94s)
+✔ [2839/2839] Built Conjecture41.TorusQuotient (96s)
+✔ [2841/2841] Built Conjecture41.QuotientArea (80s)
+✔ [2810/2810] Built Conjecture41.Rotation (63s)
+✔ [2813/2813] Built Conjecture41.Sector (67s)
+✔ [2814/2814] Built Conjecture41.Angle (22s)
+✔ [2816/2816] Built Conjecture41.TriangleCorner (22s)
+✔ [2839/2839] Built Conjecture41.VertexAngle (8.3s)
+✔ [2853/2853] Built Conjecture41.VertexSum (4.7s)
+✔ [2854/2854] Built Conjecture41.QuotientEuler (26s)
+✔ [2809/2809] Built Conjecture41.ColoredTriangle (22s)
+✔ [2809/2809] Built Conjecture41.GlobalSum (15s)
+✔ [2811/2811] Built Conjecture41.TorusCertificate (13s)
+✔ [2858/2858] Built Conjecture41.PeriodicCertificate (12s)
+✔ [2809/2809] Built Conjecture41.Limsup (14s)
+✔ [2806/2806] Built Conjecture41.AuthoritativeProof (30s)
+✔ [2813/2813] Built Conjecture41.Periodization (51s)
+✔ [2859/2859] Built Conjecture41.PeriodicProof (43s)
+ℹ [2863/2863] Built Conjecture41.Main (40s)
+ℹ [2864/2864] Built Audit41 (53s)
+✔ [2864/2864] Built Conjecture41 (60s)
+ℹ [2866/2866] Built Verification (60s)
+
+SUCCESS: all project proof modules compiled and the final axiom guards passed.
+Toolchain: leanprover/lean4:v4.28.0
+Verified declarations:
+Audit41.published_statement
+Conjecture41.conjecture_4_1
+Conjecture41.conjecture_4_1_limsup
+Standard axioms only: propext, Classical.choice, Quot.sound.

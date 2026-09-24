@@ -1,0 +1,5 @@
+PASS: unchanged release sources match the previous complete build.
+Default lake build and a fresh elaboration of Verification.lean passed.
+All three final theorem axiom guards passed.
+Negative controls rejected both an injected axiom and an admitted proof.
+This run reused compiled project modules; it is a fresh reverification, not a clean rebuild.

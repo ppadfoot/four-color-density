@@ -1,0 +1,16 @@
+{
+  "prepared_date": "2026-09-24",
+  "paper_pages": 19,
+  "paper_pdf_sha256": "58aaf8d288c27b1f9c8daaa4b93037d9453012ecfb5a0eec8121a2b0c674a94d",
+  "paper_latex_sha256": "6cab6e69a41500b874051ef669a59fdd9c8948774dfa642dcfda56cb434b32ef",
+  "paper_source_and_figures_match_approved_archive": true,
+  "paper_pdf_matches_approved_acknowledgments_update": true,
+  "lean_distribution_files": 61,
+  "lean_source_manifest_entries_verified": 60,
+  "lean_source_files_unchanged": true,
+  "local_markdown_links_resolve": true,
+  "no_dependency_caches_or_compiled_proofs_distributed": true,
+  "shell_syntax_checked": true,
+  "github_actions_executed": false,
+  "published_to_github": false
+}

@@ -1,0 +1,11 @@
+Audit41.published_statement (S : Set Conjecture41.Plane) (c : ↑S → Conjecture41.Color)
+  (hsame : ∀ (x y : ↑S), x ≠ y → c x = c y → √2 ≤ dist ↑x ↑y)
+  (hadjacent : ∀ (x y : ↑S), x ≠ y → c y = c x + 1 ∨ c y = c x - 1 → √5 / 2 ≤ dist ↑x ↑y)
+  (hopposite : ∀ (x y : ↑S), x ≠ y → c y = c x + 2 → 1 ≤ dist ↑x ↑y) :
+  (∀ (r : ℝ), (S ∩ Metric.closedBall 0 r).Finite) ∧
+    Filter.limsup (fun r => ↑(S ∩ Metric.closedBall 0 r).ncard / (Real.pi * r ^ 2)) Filter.atTop ≤ 1
+'Audit41.published_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+Conjecture41.conjecture_4_1 (C : Conjecture41.FourColorConfig) : Conjecture41.UpperRadialDensityAtMostOne C
+'Conjecture41.conjecture_4_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+Conjecture41.conjecture_4_1_limsup (C : Conjecture41.FourColorConfig) : Conjecture41.LimsupDensityAtMostOne C
+'Conjecture41.conjecture_4_1_limsup' depends on axioms: [propext, Classical.choice, Quot.sound]

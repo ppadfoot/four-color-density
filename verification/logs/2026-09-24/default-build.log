@@ -1,0 +1,201 @@
+ℹ [2863/2868] Replayed Conjecture41.Main
+info: Conjecture41/Main.lean:70:0: 'Conjecture41.conjecture_4_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Conjecture41/Main.lean:71:0: 'Conjecture41.conjecture_4_1_limsup' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2865/2868] Replayed Audit41
+info: Audit41.lean:74:0: theorem Audit41.published_statement : ∀ (S : Set Plane) (c : ↑S → Color),
+  (∀ (x y : ↑S), x ≠ y → c x = c y → √2 ≤ dist ↑x ↑y) →
+    (∀ (x y : ↑S), x ≠ y → c y = c x + 1 ∨ c y = c x - 1 → √5 / 2 ≤ dist ↑x ↑y) →
+      (∀ (x y : ↑S), x ≠ y → c y = c x + 2 → 1 ≤ dist ↑x ↑y) →
+        (∀ (r : ℝ), (S ∩ Metric.closedBall 0 r).Finite) ∧
+          Filter.limsup (fun r => ↑(S ∩ Metric.closedBall 0 r).ncard / (Real.pi * r ^ 2)) Filter.atTop ≤ 1 :=
+fun S c hsame hadjacent hopposite =>
+  let C :=
+    { carrier := S, color := extendColor S c,
+      valid := fun ⦃x y⦄ hx hy hxy =>
+        have hxy' := fun h => hxy (congrArg Subtype.val h);
+        Eq.mpr (id (congrArg (fun _a => exclusionSq _a (extendColor S c y) ≤ dist x y ^ 2) (extendColor_mem c hx)))
+          (Eq.mpr (id (congrArg (fun _a => exclusionSq (c ⟨x, hx⟩) _a ≤ dist x y ^ 2) (extendColor_mem c hy)))
+            (id
+              (if heq : c ⟨x, hx⟩ = c ⟨y, hy⟩ then
+                Eq.mpr (id (congrFun' (congrArg LE.le (if_pos heq)) (dist x y ^ 2)))
+                  (have hd := hsame ⟨x, hx⟩ ⟨y, hy⟩ hxy' heq;
+                  have hs := (sq_le_sq₀ (Real.sqrt_nonneg 2) dist_nonneg).mpr hd;
+                  Eq.mp
+                    (congrFun'
+                      (congrArg LE.le
+                        (Real.sq_sqrt
+                          (have this :=
+                            Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl true);
+                          this)))
+                      (dist x y ^ 2))
+                    hs)
+              else
+                Eq.mpr (id (congrFun' (congrArg LE.le (if_neg heq)) (dist x y ^ 2)))
+                  (if hopp : c ⟨y, hy⟩ = c ⟨x, hx⟩ + 2 then
+                    Eq.mpr (id (congrFun' (congrArg LE.le (if_pos hopp)) (dist x y ^ 2)))
+                      (have hd := hopposite ⟨x, hx⟩ ⟨y, hy⟩ hxy' hopp;
+                      have hs :=
+                        (sq_le_sq₀
+                              (Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl true))
+                              dist_nonneg).mpr
+                          hd;
+                      Eq.mpr
+                        (id
+                          (Eq.trans
+                            (Eq.trans (one_le_sq_iff_one_le_abs._simp_1 (dist x y)) (congrArg (LE.le 1) abs_dist))
+                            ge_iff_le._simp_1))
+                        (Eq.mp
+                          (Eq.trans
+                            (Eq.trans (congrFun' (congrArg LE.le (one_pow 2)) (dist x y ^ 2))
+                              (one_le_sq_iff_one_le_abs._simp_1 (dist x y)))
+                            (congrArg (LE.le 1) abs_dist))
+                          hs))
+                  else
+                    Eq.mpr (id (congrFun' (congrArg LE.le (if_neg hopp)) (dist x y ^ 2)))
+                      (have hd :=
+                        hadjacent ⟨x, hx⟩ ⟨y, hy⟩ hxy'
+                          (adjacent_of_not_same_or_opposite (c ⟨x, hx⟩) (c ⟨y, hy⟩) heq hopp);
+                      have hs :=
+                        (sq_le_sq₀
+                              (le_of_lt
+                                (div_pos
+                                  (Real.sqrt_pos_of_pos
+                                    (Mathlib.Meta.Positivity.pos_of_isNat
+                                      (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 5)) (Eq.refl (Nat.ble 1 5))))
+                                  (Mathlib.Meta.Positivity.pos_of_isNat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+                                    (Eq.refl (Nat.ble 1 2)))))
+                              dist_nonneg).mpr
+                          hd;
+                      Eq.mpr
+                        (id
+                          (Eq.trans
+                            (Eq.trans
+                              (Eq.trans
+                                (congrFun'
+                                  (congrArg LE.le
+                                    (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                      (Mathlib.Meta.NormNum.isNNRat_div
+                                        (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 5)))
+                                          (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 4))))
+                                          (Eq.refl (Nat.mul 5 1)) (Eq.refl 4)))
+                                      (Eq.refl 5) (Eq.refl 4)))
+                                  (dist x y ^ 2))
+                                (congrFun'
+                                  (congrArg LE.le
+                                    (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                      (Mathlib.Meta.NormNum.isNNRat_div
+                                        (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 5)))
+                                          (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 4))))
+                                          (Eq.refl (Nat.mul 5 1)) (Eq.refl 4)))
+                                      (Eq.refl 5) (Eq.refl 4)))
+                                  (dist x y ^ 2)))
+                              ge_iff_le._simp_1)
+                            (congrFun'
+                              (congrArg LE.le
+                                (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                  (Mathlib.Meta.NormNum.isNNRat_div
+                                    (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 5)))
+                                      (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 4))))
+                                      (Eq.refl (Nat.mul 5 1)) (Eq.refl 4)))
+                                  (Eq.refl 5) (Eq.refl 4)))
+                              (dist x y ^ 2))))
+                        (Eq.mp
+                          (Eq.trans
+                            (congrFun'
+                              (congrArg LE.le
+                                (Eq.trans (div_pow (√5) 2 2)
+                                  (Eq.trans
+                                    (congr
+                                      (congrArg HDiv.hDiv
+                                        (Real.sq_sqrt
+                                          (have this :=
+                                            Mathlib.Meta.NormNum.isNat_le_true
+                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 5)) (Eq.refl true);
+                                          this)))
+                                      (Mathlib.Meta.NormNum.IsNat.to_eq
+                                        (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                                          (Mathlib.Meta.NormNum.IsNatPowT.run Mathlib.Meta.NormNum.IsNatPowT.bit0))
+                                        (Eq.refl 4)))
+                                    (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                      (Mathlib.Meta.NormNum.isNNRat_div
+                                        (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                            (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 5)))
+                                          (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 4))))
+                                          (Eq.refl (Nat.mul 5 1)) (Eq.refl 4)))
+                                      (Eq.refl 5) (Eq.refl 4)))))
+                              (dist x y ^ 2))
+                            (congrFun'
+                              (congrArg LE.le
+                                (Mathlib.Meta.NormNum.IsNNRat.to_eq
+                                  (Mathlib.Meta.NormNum.isNNRat_div
+                                    (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 5)))
+                                      (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                        (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 4))))
+                                      (Eq.refl (Nat.mul 5 1)) (Eq.refl 4)))
+                                  (Eq.refl 5) (Eq.refl 4)))
+                              (dist x y ^ 2)))
+                          hs)))))) };
+  ⟨finiteInClosedBall C,
+    have hcount := fun r =>
+      Eq.mpr
+        (id
+          (congrArg (fun _a => _a = countInClosedBall C r)
+            (Set.ncard_eq_toFinset_card (C.carrier ∩ Metric.closedBall 0 r) (finiteInClosedBall C r))))
+        (Eq.refl (finiteInClosedBall C r).toFinset.card);
+    Eq.mpr
+      (id
+        (congrFun'
+          (congrArg LE.le
+            (congrFun'
+              (congrArg Filter.limsup
+                (funext fun r =>
+                  congrFun' (congrArg HDiv.hDiv (congrArg Nat.cast ((fun r => hcount r) r))) (Real.pi * r ^ 2)))
+              Filter.atTop))
+          1))
+      (conjecture_4_1_limsup C)⟩
+info: Audit41.lean:75:0: 'Audit41.published_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit41.lean:76:0: theorem Conjecture41.conjecture_4_1 : ∀ (C : FourColorConfig), UpperRadialDensityAtMostOne C :=
+fun C => conjecture_4_1_of_periodic periodic_density C
+info: Audit41.lean:77:0: theorem Conjecture41.conjecture_4_1_limsup : ∀ (C : FourColorConfig), LimsupDensityAtMostOne C :=
+fun C => (upperRadialDensity_iff_limsup C).mp (conjecture_4_1 C)
+info: Audit41.lean:78:0: 'Conjecture41.periodic_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit41.lean:79:0: 'Conjecture41.exists_torusTriangulation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit41.lean:80:0: 'Conjecture41.DeloneSet.exists_mem_delCell' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit41.lean:81:0: 'Conjecture41.PeriodicConfig.area_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit41.lean:82:0: 'Conjecture41.PeriodicConfig.euler_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2867/2868] Replayed Verification
+info: Verification.lean:6:0: Audit41.published_statement (S : Set Conjecture41.Plane) (c : ↑S → Conjecture41.Color)
+  (hsame : ∀ (x y : ↑S), x ≠ y → c x = c y → √2 ≤ dist ↑x ↑y)
+  (hadjacent : ∀ (x y : ↑S), x ≠ y → c y = c x + 1 ∨ c y = c x - 1 → √5 / 2 ≤ dist ↑x ↑y)
+  (hopposite : ∀ (x y : ↑S), x ≠ y → c y = c x + 2 → 1 ≤ dist ↑x ↑y) :
+  (∀ (r : ℝ), (S ∩ Metric.closedBall 0 r).Finite) ∧
+    Filter.limsup (fun r => ↑(S ∩ Metric.closedBall 0 r).ncard / (Real.pi * r ^ 2)) Filter.atTop ≤ 1
+info: Verification.lean:12:0: 'Audit41.published_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Verification.lean:14:0: Conjecture41.conjecture_4_1 (C : Conjecture41.FourColorConfig) : Conjecture41.UpperRadialDensityAtMostOne C
+info: Verification.lean:20:0: 'Conjecture41.conjecture_4_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Verification.lean:22:0: Conjecture41.conjecture_4_1_limsup (C : Conjecture41.FourColorConfig) : Conjecture41.LimsupDensityAtMostOne C
+info: Verification.lean:28:0: 'Conjecture41.conjecture_4_1_limsup' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (2868 jobs).
